@@ -8,5 +8,5 @@ class Database
 
   def delete_user(email)
     @connection.exec("DELETE from public.users where email = '#{email}';")
-end
+  end
 end
