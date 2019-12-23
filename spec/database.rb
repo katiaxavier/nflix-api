@@ -9,4 +9,10 @@ class Database
   def delete_user(email)
     @connection.exec("DELETE from public.users where email = '#{email}';")
   end
+
+  def find_user(email)
+    query = 'SELECT id, full_name, password, email, created_at, updated_at'\
+    " FROM public.users where email = '#{email}';"
+    @connection.exec(query).first
+  end
 end
