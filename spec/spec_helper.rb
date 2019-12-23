@@ -15,4 +15,8 @@ RSpec.configure do |config|
   end
 
   config.include FactoryBot::Syntax::Methods
+
+  config.before :all do
+    Database.new.clean_db
+  end
 end
