@@ -1,10 +1,9 @@
-# frozen_string_literal: true
 
 describe 'post' do
   context 'when new user' do
     before do
-      @new_user = { full_name: 'katia kurenai', email: 'katia@kurenai.com', password: 'ninja123' }
-      Database.new.delete_user(@new_user[:email])
+      #Criar massa de dados atraves do factory
+      @new_user = build(:user).to_hash
 
       @result = HTTParty.post(
         'http://localhost:3001/user',
