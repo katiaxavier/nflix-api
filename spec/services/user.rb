@@ -17,4 +17,8 @@ class ApiUser
         result = post('/auth', body:{email: user_email, password: user_pass}.to_json)
         "JWT #{result.parsed_response['token']}"
     end
+
+    def self.remove(token, user_id)
+        delete("/user/#{user_id}", headers:{'Authorization' => token})
+    end
 end
